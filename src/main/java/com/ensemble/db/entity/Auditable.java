@@ -9,17 +9,21 @@ import javax.persistence.MappedSuperclass;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
+/**
+ * Base class of entity. 
+ * @author sarfraz
+ *
+ */
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public abstract class Auditable {
 	@CreatedDate
-	@Column(columnDefinition = "timestamp default '2020-04-10 20:47:05.967394'", updatable = false)
+	@Column(columnDefinition = "timestamp default '2020-04-10 20:47:05.967394'", updatable = false, name="created_date")
 	protected Timestamp createdDate;
 	
 	@LastModifiedDate
-    @Column(columnDefinition = "timestamp default '2020-04-10 20:47:05.967394'")
-    protected Timestamp lastModifiedDate;
+    @Column(columnDefinition = "timestamp default '2020-04-10 20:47:05.967394'", name = "modified_date")
+    protected Timestamp modifiedDate;
 
 	public Timestamp getCreatedDate() {
 		return createdDate;
@@ -30,10 +34,10 @@ public abstract class Auditable {
 	}
 
 	public Timestamp getLastModifiedDate() {
-		return lastModifiedDate;
+		return modifiedDate;
 	}
 
 	public void setLastModifiedDate(Timestamp lastModifiedDate) {
-		this.lastModifiedDate = lastModifiedDate;
+		this.modifiedDate = lastModifiedDate;
 	}
 }

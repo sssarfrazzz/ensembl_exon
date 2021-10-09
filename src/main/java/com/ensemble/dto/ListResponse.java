@@ -1,17 +1,22 @@
 package com.ensemble.dto;
 
 import java.util.List;
-import java.util.Set;
-
+/**
+ * Generic class for response of API. Can be used for Pagination API.
+ * @author sarfraz
+ *
+ */
 public class ListResponse {
 
 	private long totalResults;
-	
+
 	private int startIndex;
-	
+
 	private int itemsPerPage;
-	
-	private  List<?> resources;
+
+	private List<?> resources;
+
+	private String message;
 
 	public ListResponse(long totalResults, int startIndex, int itemsPerPage, List<?> resources) {
 		super();
@@ -52,6 +57,13 @@ public class ListResponse {
 	public void setResources(List<?> resources) {
 		this.resources = resources;
 	}
-	
-	
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 }

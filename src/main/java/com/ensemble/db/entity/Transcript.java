@@ -12,46 +12,68 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 import com.ensemble.Utils.Constants;
-
-import lombok.Getter;
-import lombok.Setter;
-
+/**
+ * Class represent DB model of transcript
+ * @author sarfraz
+ *
+ */
 @Entity
 @Table(name = "transcript")
-@Getter
-@Setter
 public class Transcript extends Auditable implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Primary key
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO,generator = "native")
 	@GenericGenerator(name = "native",strategy = "native")
 	@Column(name = "transcript_id", nullable = false,length = 10)
 	Integer transcriptId;
 
+	/**
+	 * Gene id assoicated with transcript
+	 */
 	@Column(name = "gene_id",length = 10)
 	Integer geneId;
 
+	/**
+	 * Analysis id associated with Transcript
+	 */
 	@Column(name = "analysis_id")
 	short  analysisId;
 
+	/**
+	 * Sequence region id 
+	 */
 	@Column(name = "seq_region_id", length = 10)
 	Integer seqRegionId;
 
+	/**
+	 * Sequence region start 
+	 */
 	@Column(name = "seq_region_start", length = 10)
 	Integer seqRegionStart;
-	
+	/**
+	 * Sequence region end 
+	 */
 	@Column(name = "seq_region_end",  length = 10)
 	Integer seqRegionEnd;
-	
+	/**
+	 * Sequence region strand 
+	 */
 	@Column(name = "seq_region_strand",length = 2 )
 	byte seqRegionStrand;
-		
+	
+	
 	@Column(name = "display_xref_id", length = 10)
 	Integer displayXrefId;
 	
+	/**
+	 * Source of transcript. Default value is ensembl
+	 */
 	@Column(name = "source")
 	String source=Constants.ENSEMBL;
 	
@@ -67,6 +89,9 @@ public class Transcript extends Auditable implements Serializable {
 	@Column(name = "canonical_translation_id", length = 10, unique = true)
 	Integer canonicalTranslationId;
 	
+	/**
+	 * Stable id of transcript
+	 */
 	@Column(name = "stable_id", length = 128)
 	String  stable_id;
 	

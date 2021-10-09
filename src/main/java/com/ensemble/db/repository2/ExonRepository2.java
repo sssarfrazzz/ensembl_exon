@@ -1,4 +1,4 @@
-package com.ensemble.db.repository;
+package com.ensemble.db.repository2;
 
 import java.util.List;
 
@@ -10,12 +10,12 @@ import org.springframework.stereotype.Repository;
 
 import com.ensemble.db.entity.Exon;
 /**
- * Repository interface to connect to DB.
+ * Repository interface to connect to DB.This Package corresponds to second database connected to project
  * @author sarfraz
  *
  */
 @Repository
-public interface ExonRepository extends JpaRepository<Exon, Integer> {
+public interface ExonRepository2 extends JpaRepository<Exon, Integer> {
 	
 	@Query(value ="select count(*) from exon e where e.exon_id in (select et.exon_id from exon_transcript et where et.transcript_id = :transcriptId order by et.rank)",nativeQuery=true)
 	public Long countAllExons(@Param("transcriptId") Integer transcriptId); 

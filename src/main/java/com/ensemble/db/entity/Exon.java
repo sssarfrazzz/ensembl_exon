@@ -10,6 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+
+/**
+ * Class respresent DB model of exons. 
+ * @author sarfraz
+ *
+ */
 @Entity
 @Table(name = "exon")
 public class Exon extends Auditable implements Serializable{
