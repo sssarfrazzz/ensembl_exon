@@ -35,10 +35,10 @@ curl --location --request GET 'http://localhost:8080/v2/transcripts/ENST00000389
 -The exons response for same transcript stable id is different for v1 and v2 API. Screenshot is attached. 
 
 v1 API response
-
+![API response](api_response.png)
 
 v2 API response
-
+![v2 API response](api_response_v2.png)
 
 ## Junits
 - Created junits to execute integration test.
